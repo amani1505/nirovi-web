@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
+  currentYear:number = new Date().getFullYear();
+
   ngOnInit() {
     // Your code goes here
     window.addEventListener('load', () => {

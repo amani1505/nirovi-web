@@ -1,25 +1,28 @@
 
 <nav
-  class="fixed flex justify-between py-6 w-full lg:px-48 md:px-12 px-4 content-center bg-secondary z-10"
+  class="fixed flex justify-between py-4 w-full lg:px-48 md:px-12 px-4 content-center bg-secondary z-10"
 >
   <div class="flex items-center">
     <img src="assets/images/nirovi2.png" alt="Logo" width="150" height="150"/>
   </div>
   <ul class="font-montserrat items-center hidden md:flex">
     <li class="mx-3">
-      <a class="growing-underline" href="howitworks"> How it works </a>
+      <a class="growing-underline" href="howitworks"> Home </a>
     </li>
     <li class="growing-underline mx-3">
-      <a href="features">Features</a>
+      <a href="features">Service</a>
     </li>
     <li class="growing-underline mx-3">
-      <a href="pricing">Pricing</a>
+      <a href="pricing">About</a>
+    </li>
+    <li class="growing-underline mx-3">
+      <a href="pricing">Contact us</a>
     </li>
   </ul>
-  <div class="font-montserrat hidden md:block">
+  <!-- <div class="font-montserrat hidden md:block">
     <button class="mr-6">Login</button>
     <button class="py-2 px-4 text-white bg-black rounded-3xl">Signup</button>
-  </div>
+  </div> -->
   <div id="showMenu" class="md:hidden">
     <img src=" assets/logos/Menu.svg" alt="Menu icon" />
   </div>
@@ -33,13 +36,16 @@
   </div>
   <ul class="font-montserrat flex flex-col mx-8 my-24 items-center text-3xl">
     <li class="my-6">
-      <a href="howitworks">How it works</a>
+      <a href="howitworks">Home</a>
     </li>
     <li class="my-6">
-      <a href="features">Features</a>
+      <a href="features">Service</a>
     </li>
     <li class="my-6">
-      <a href="pricing">Pricing</a>
+      <a href="pricing">About</a>
+    </li>
+    <li class="my-6">
+      <a href="pricing">Contact us</a>
     </li>
   </ul>
 </div>
@@ -59,7 +65,7 @@
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum harum
       tempore consectetur voluptas, cumque nobis laboriosam voluptatem.
     </p>
-    <div class="font-montserrat">
+    <!-- <div class="font-montserrat">
       <button
         class="bg-black px-6 py-4 rounded-lg border-2 border-black border-solid text-white mr-2 mb-2"
       >
@@ -68,7 +74,7 @@
       <button class="px-6 py-4 border-2 border-black border-solid rounded-lg">
         Secondary action
       </button>
-    </div>
+    </div> -->
   </div>
   <div class="flex justify-around md:block mt-8 md:mt-0 md:flex-1">
     <div class="relative">
@@ -78,8 +84,8 @@
         class="absolute -top-16 -left-10"
       />
     </div>
-    <img src="assets/icons/MacBook Pro.png" alt="Macbook" />
-    <div class="relative">
+    <img src="assets/images/bed.webp" alt="Macbook" />
+    <div class="relative w-full">
       <img
         src="assets/icons/Highlight2.svg"
         alt=""
@@ -92,7 +98,7 @@
 <!-- How it works -->
 <section class="bg-black text-white sectionSize">
   <div>
-    <h2 class="secondaryTitle bg-underline2 bg-100%">How it works</h2>
+    <h2 class="secondaryTitle bg-underline2 bg-100%">Home</h2>
   </div>
   <div class="flex flex-col md:flex-row">
     <div class="flex-1 mx-8 flex flex-col items-center my-4">
@@ -192,7 +198,7 @@
 </section>
 
 <!-- Pricing -->
-<section class="sectionSize bg-secondary py-0">
+<section class="sectionSize bg-primary py-0">
   <div>
     <h2 class="secondaryTitle bg-underline4 mb-0 bg-100%">Pricing</h2>
   </div>
@@ -366,6 +372,6 @@
     </a>
   </div>
   <div class="text-white font-montserrat text-sm">
-    © 2021 STARTUP. All rights reserved
+    © {{currentYear}} NIROVI LODGE. All rights reserved
   </div>
 </section>
