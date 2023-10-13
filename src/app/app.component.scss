@@ -1,49 +1,17 @@
-// .home{
-//     background-color: #b4d2e7;
-// }
-// .about{
-//     background-color: #a1a6b4;
-// }
-// .service{
-//     background-color: #94c5cc;  
-// }
-// .contact{
-//     background-color: #94c5cc;  
-// }
-// .top{
-//     height: 55.5vh;
-//     width: 100%;
-//     // background:radial-gradient(circle,rgb(255,214,10),rgb(15,15,15)) ;
-// }
-// .bottom{
-//     height: 36vh;
-//     width: 100%;
-//     // background:radial-gradient(circle,rgb(255,214,10),rgb(15,15,15)) ;
-// }
-// .imageWrapper{
-//     position: absolute;
-//     img{
-//         width: 100%;
-//         -webkit-box-reflect: below 0 linear-gradient(transparent,rgba(255,255,255,0.8));
-//     }
-// }
+.home{
+  background:
+  linear-gradient(to right, rgba(0,0,0,0.3), rgba(0,0,0,0.2)),url("../assets/images/room.jpg") center center/cover no-repeat,
+ 
 
-// .welcome{
-//     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-//     font-size: 2rem;
-// }
+}
 
-::ng-deep ::-webkit-scrollbar-track {
-    background: #f1f1f1; /* Background color of the scrollbar track */
-  }
-  
-  /* Customize scrollbar thumb */
-  ::ng-deep ::-webkit-scrollbar-thumb {
-    background: #888; /* Color of the scrollbar thumb */
-    border-radius: 10px; /* Border radius of the scrollbar thumb */
-  }
-  
-  /* Customize scrollbar thumb on hover */
-  ::ng-deep ::-webkit-scrollbar-thumb:hover {
-    background: #555; /* Color of the scrollbar thumb on hover */
-  }
+.translate-x-full {
+  transform: translateX(-100%);
+}
+
+.contact{
+  background:
+  linear-gradient(to right, rgba(0,0,0,0.8), rgba(0,0,0,0.7)),url("../assets/images/bedroom.jpg") center center/cover no-repeat,
+ 
+
+}

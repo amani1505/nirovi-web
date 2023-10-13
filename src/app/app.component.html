@@ -1,23 +1,35 @@
 <!-- NIROVI NAV BAR FOR LARGE SCREEN -->
 <nav
-  class="fixed flex justify-between py-4 w-full lg:px-48 md:px-12 px-4 content-center bg-secondary z-10"
+  class="fixed flex justify-between py-4 w-full lg:px-48 md:px-12 px-4 transition duration-500 ease-in content-center z-10"
+  [ngClass]="{
+    'bg-medium  transition duration-700 ease-in py-0': isScrolled
+  }"
 >
-  <div class="flex items-center">
-    <img src="assets/images/nirovi.png" alt="Logo" width="150" height="150" />
+  <div
+    class="flex items-center uppercase font-varela font-extrabold text-2xl leading-7"
+  >
+    <!-- <img src="assets/images/nirovi.png" alt="Logo" width="150" height="150" /> -->
+    <h1>
+      <span class="text-white">nirovi </span
+      ><span class="text-primary"> lodge</span>
+    </h1>
   </div>
-  <ul class="font-montserrat items-center hidden md:flex">
+  <ul class="font-montserrat items-center hidden md:flex text-white">
     <li class="mx-3">
-      <a class="growing-underline cursor-pointer" (click)="navigate(home)">
+      <a
+        class="growing-underline cursor-pointer hover:text-primary"
+        (click)="navigate(home)"
+      >
         Home
       </a>
     </li>
-    <li class="growing-underline mx-3 cursor-pointer">
+    <li class="growing-underline mx-3 cursor-pointer hover:text-primary">
       <a (click)="navigate(service)">Service</a>
     </li>
-    <li class="growing-underline mx-3 cursor-pointer">
+    <li class="growing-underline mx-3 cursor-pointer hover:text-primary">
       <a (click)="navigate(rooms)">Rooms</a>
     </li>
-    <li class="growing-underline mx-3 cursor-pointer">
+    <li class="growing-underline mx-3 cursor-pointer hover:text-primary">
       <a (click)="navigate(contact)">Contact us</a>
     </li>
   </ul>
@@ -32,7 +44,7 @@
 
 <div
   *ngIf="showMenu"
-  class="px-4 py-6 fixed top-0 left-0 h-full w-full bg-secondary z-20 animate-fade-in-down"
+  class="px-4 py-6 fixed top-0 left-0 h-full w-full bg-medium text-white z-20 animate-fade-in-down"
 >
   <div id="hideMenu" class="flex justify-end" (click)="closeMobileNav()">
     <img src="assets/logos/Cross.svg" alt="" class="h-16 w-16" />
@@ -57,37 +69,58 @@
 
 <!-- HOME SECTION -->
 <section
-  class="pt-24 md:mt-0 md:h-screen flex flex-col justify-center text-center md:text-left md:flex-row md:justify-between md:items-center lg:px-48 md:px-12 px-4 bg-secondary snap-mandatory snap-y snap-center"
-  [@fadeInOut]
+  class="pt-24 md:mt-0 md:h-screen flex flex-col justify-center text-center md:text-left md:flex-row md:justify-between md:items-center lg:px-48 md:px-12 px-4 snap-mandatory snap-y snap-center transition duration-300 ease-in-out animate-fade-in-down home"
   #home
 >
   <div class="md:flex-1 md:mr-10">
-    <h1 class="font-pt-serif text-4xl font-bold mb-7 leading-normal">
+    <h1
+      class="font-pt-serif text-4xl font-bold mb-7 leading-normal text-primary"
+    >
       Welcome to Nirovi Lodge -
       <span class="bg-left-bottom bg-no-repeat pb-5 bg-100% tracking-wider">
         Where Tranquility Meets Luxury!
       </span>
     </h1>
-    <p class="font-raleway font-normal mb-7">
+    <p class="font-raleway font-normal mb-7 text-white">
       Experience nature's embrace and indulge in a world of serenity.
     </p>
     <div class="font-montserrat">
       <a
         (click)="navigate(service)"
-        class="bg-black px-6 py-4 rounded-lg border-2 border-black border-solid text-white mr-2 mb-2 cursor-pointer"
+        class="bg-medium px-6 py-4 rounded-lg border-solid text-white mr-2 mb-2 cursor-pointer"
       >
         Services
       </a>
 
       <a
         (click)="navigate(contact)"
-        class="px-6 py-4 border-2 border-black border-solid rounded-lg cursor-pointer"
+        class="px-6 py-4 border-2 border-primary border-solid text-white rounded-lg cursor-pointer"
       >
         Contact us
       </a>
     </div>
+    <div
+      *ngIf="isScrolled"
+      class="fixed flex bottom-0 right-0 mr-5 mb-5 border-2 border-primary p-2 w-9 h-9 text-center items-center rounded-full z-10 animate-bounce"
+      (click)="backToTheTop()"
+    >
+      <fa-icon
+        [icon]="faArrowUp"
+        class="text-secondary transition duration-500 ease-in text-lg hover:text-primary"
+      ></fa-icon>
+    </div>
   </div>
-  <div class="flex justify-around md:block mt-8 md:mt-0 md:flex-1">
+  <div
+    *ngIf="isScrolled"
+    class="fixed flex bottom-0 right-0 mr-5 mb-5 border-2 border-primary p-2 w-9 h-9 text-center items-center rounded-full z-10 animate-bounce"
+    (click)="backToTheTop()"
+  >
+    <fa-icon
+      [icon]="faArrowUp"
+      class="text-secondary transition duration-500 ease-in text-lg hover:text-primary"
+    ></fa-icon>
+  </div>
+  <!-- <div class="flex justify-around md:block mt-8 md:mt-0 md:flex-1">
     <div class="relative">
       <img
         src="assets/icons/Highlight1.svg"
@@ -103,223 +136,86 @@
         class="absolute -bottom-10 -right-6"
       />
     </div>
-  </div>
+  </div> -->
 </section>
 
 <!-- SERVICE SECTION -->
-<section class="bg-black text-white sectionSize" [@fadeInOut] #service>
-  <div>
+<section class="text-gray-400 sectionSize" #service>
+  <!-- <div>
     <h2 class="secondaryTitle bg-underline2 bg-100%">Services</h2>
-  </div>
+  </div> -->
   <div class="flex flex-col md:flex-row">
     <div class="flex-1 mx-8 flex flex-col items-center my-4">
-      <div
-        class="border-2 rounded-full bg-secondary text-black h-12 w-12 flex justify-center items-center mb-3"
-      >
-        1
+      <div class="my-3">
+        <fa-icon
+          [icon]="faHotel"
+          class="text-secondary transition duration-500 ease-in text-6xl hover:text-primary"
+        ></fa-icon>
       </div>
       <h3 class="font-montserrat font-medium text-xl mb-2">Accommodation</h3>
       <p class="text-center font-montserrat">
-        Comfortable rooms, suites, cottages, or villas with various bed configurations.
+        Comfortable rooms, suites, cottages, or villas with various bed
+        configurations.
       </p>
     </div>
     <div class="flex-1 mx-8 flex flex-col items-center my-4">
-      <div
-        class="border-2 rounded-full bg-secondary text-black h-12 w-12 flex justify-center items-center mb-3"
-      >
-        2
+      <div class="my-3">
+        <fa-icon
+          [icon]="faUserGroup"
+          class="text-secondary transition duration-500 ease-in text-6xl hover:text-primary"
+        ></fa-icon>
       </div>
-      <h3 class="font-montserrat font-medium text-xl mb-2">Concierge and Guest Services</h3>
+      <h3 class="font-montserrat font-medium text-xl mb-2">Guest Services</h3>
       <p class="text-center font-montserrat">
-        24/7 front desk and concierge service to assist guests with inquiries, reservations, and local recommendations.
+        24/7 front desk and concierge service to assist guests with inquiries,
+        reservations, and local recommendations.
       </p>
     </div>
     <div class="flex-1 mx-8 flex flex-col items-center my-4">
-      <div
-        class="border-2 rounded-full bg-secondary text-black h-12 w-12 flex justify-center items-center mb-3"
-      >
-        3
+      <div class="my-3">
+        <fa-icon
+          [icon]="faTreeCity"
+          class="text-secondary transition duration-500 ease-in text-6xl hover:text-primary"
+        ></fa-icon>
       </div>
-      <h3 class="font-montserrat font-medium text-xl mb-2">Environmental Initiatives</h3>
+      <h3 class="font-montserrat font-medium text-xl mb-2">
+        Environmental Initiatives
+      </h3>
       <p class="text-center font-montserrat">
-        Lodges located in eco-sensitive areas often promote sustainable practices and nature conservation
+        Lodges located in eco-sensitive areas often promote sustainable
+        practices and nature conservation
       </p>
     </div>
   </div>
 </section>
 
-<!-- Features -->
-<!-- <section class="sectionSize bg-secondary">
-  <div>
-    <h2 class="secondaryTitle bg-underline3 bg-100%">Features</h2>
-  </div>
-  <div class="md:grid md:grid-cols-2 md:grid-rows-2">
-    <div class="flex items-start font-montserrat my-6 mr-10">
-      <img src="assets/logos/Heart.svg" alt="" class="h-7 mr-4" />
-      <div>
-        <h3 class="font-semibold text-2xl">Feature #1</h3>
-        <p>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quisquam
-          voluptate praesentium tenetur earum repellendus! Dicta culpa
-          consequuntur saepe quibusdam labore, est ex ducimus tempore, quos
-          illum officiis, pariatur ea placeat.
-        </p>
-      </div>
-    </div>
-
-    <div class="flex items-start font-montserrat my-6 mr-10">
-      <img src="assets/logos/Heart.svg" alt="" class="h-7 mr-4" />
-      <div>
-        <h3 class="font-semibold text-2xl">Feature #2</h3>
-        <p>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quisquam
-          voluptate praesentium tenetur earum repellendus! Dicta culpa
-          consequuntur saepe quibusdam labore, est ex ducimus tempore, quos
-          illum officiis, pariatur ea placeat.
-        </p>
-      </div>
-    </div>
-
-    <div class="flex items-start font-montserrat my-6 mr-10">
-      <img src="assets/logos/Heart.svg" alt="" class="h-7 mr-4" />
-      <div>
-        <h3 class="font-semibold text-2xl">Feature #3</h3>
-        <p>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quisquam
-          voluptate praesentium tenetur earum repellendus! Dicta culpa
-          consequuntur saepe quibusdam labore, est ex ducimus tempore, quos
-          illum officiis, pariatur ea placeat.
-        </p>
-      </div>
-    </div>
-
-    <div class="flex items-start font-montserrat my-6 mr-10">
-      <img src="assets/logos/Heart.svg" alt="" class="h-7 mr-4" />
-      <div>
-        <h3 class="font-semibold text-2xl">Feature #4</h3>
-        <p>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quisquam
-          voluptate praesentium tenetur earum repellendus! Dicta culpa
-          consequuntur saepe quibusdam labore, est ex ducimus tempore, quos
-          illum officiis, pariatur ea placeat.
-        </p>
-      </div>
-    </div>
-  </div>
-</section> -->
+<owl-carousel-o [options]="galleryOptions" (translated)="getPassedData($event)">
+  <ng-container *ngFor="let photo of photos; let i = index">
+    <ng-template carouselSlide [id]="photo.id">
+      <img [src]="photo.url" />
+    </ng-template>
+  </ng-container>
+</owl-carousel-o>
 
 <!-- ROOMS -->
-<section class="sectionSize bg-primary py-0" #rooms>
+<section class="lg:px-48 md:px-12 px-4 py-0" #rooms>
   <div>
-    <h2 class="secondaryTitle bg-underline4 mb-0 bg-100% pt-5">Rooms</h2>
+    <h2 class="secondaryTitle text-center mb-0 bg-100% pt-5">Rooms</h2>
   </div>
-
-  <div
-    class="container w-full md:w-1/2 drop-shadow-lg bg-secondary my-3 rounded-md"
-  >
-    <div class="flex justify-center w-full">
-      <img src="assets//images/bed.webp" alt="" width="250" class="p-5" />
-    </div>
-
-    <div class="px-5 font-raleway text-center mb-[2rem]">
-      <span class="font-bold"> Description:</span> Self Container, Television,
-      Azam TV, DSTV and Drinks Are Available
-    </div>
-  </div>
-  <!-- <div class="flex w-full flex-col md:flex-row">
-    <div
-      class="flex-1 flex flex-col mx-6 shadow-2xl relative bg-secondary rounded-2xl py-5 px-8 my-8 md:top-24"
-    >
-      <h3 class="font-pt-serif font-normal text-2xl mb-4">Standard</h3>
-      <div class="font-montserrat font-bold text-2xl mb-4">
-        25,000
-        <span class="font-normal text-base"> / Day</span>
-      </div>
-
-      <div class="flex">
-        <img src="assets/logos/CheckedBox.svg" alt="" class="mr-1" />
-        <p>Benefit #1</p>
-      </div>
-      <div class="flex">
-        <img src="assets/logos/CheckedBox.svg" alt="" class="mr-1" />
-        <p>Benefit #2</p>
-      </div>
-      <div class="flex">
-        <img src="assets/logos/CheckedBox.svg" alt="" class="mr-1" />
-        <p>Benefit #3</p>
-      </div>
-
-      <!-- <button
-        class="border-2 border-solid border-black rounded-xl text-lg py-3 mt-4 hover:bg-black hover:text-white"
-      >
-        Book Now
-      </button> --
-    </div>
-
-    <div
-      class="flex-1 flex flex-col mx-6 shadow-2xl relative bg-secondary rounded-2xl py-5 px-8 my-8 md:top-12"
-    >
-      <h3 class="font-pt-serif font-normal text-2xl mb-4">VIP</h3>
-      <div class="font-montserrat font-bold text-2xl mb-4">
-        $40
-        <span class="font-normal text-base"> / month</span>
-      </div>
-
-      <div class="flex">
-        <img src="assets/logos/CheckedBox.svg" alt="" class="mr-1" />
-        <p>Benefit #1</p>
-      </div>
-      <div class="flex">
-        <img src="assets/logos/CheckedBox.svg" alt="" class="mr-1" />
-        <p>Benefit #2</p>
-      </div> 
-      <div class="flex">
-        <img src="assets/logos/CheckedBox.svg" alt="" class="mr-1" />
-        <p>Benefit #3</p>
-      </div>
-
-      <!-- <button
-        class="border-2 border-solid border-black rounded-xl text-lg py-3 mt-4 hover:bg-black hover:text-white"
-      >
-        Book Now
-      </button> --
-    </div>
-    <!-- 
-    <div
-      class="flex-1 flex flex-col mx-6 shadow-2xl relative bg-secondary rounded-2xl py-5 px-8 my-8 md:top-24"
-    >
-      <h3 class="font-pt-serif font-normal text-2xl mb-4">The Ugly</h3>
-      <div class="font-montserrat font-bold text-2xl mb-4">
-        $50
-        <span class="font-normal text-base"> / month</span>
-      </div>
-
-      <div class="flex">
-        <img src="assets/logos/CheckedBox.svg" alt="" class="mr-1" />
-        <p>Benefit #1</p>
-      </div>
-      <div class="flex">
-        <img src="assets/logos/CheckedBox.svg" alt="" class="mr-1" />
-        <p>Benefit #2</p>
-      </div>
-      <div class="flex">
-        <img src="assets/logos/CheckedBox.svg" alt="" class="mr-1" />
-        <p>Benefit #3</p>
-      </div>
-
-      <button
-        class="border-2 border-solid border-black rounded-xl text-lg py-3 mt-4"
-      >
-        Choose plan
-      </button>
-    </div> --
-  </div> -->
+  <owl-carousel-o [options]="roomsOptions">
+    <ng-container *ngFor="let photo of photos; let i = index">
+      <ng-template carouselSlide [id]="photo.id">
+        <div class="h-96 border-2 p-5">
+          
+        </div>
+      </ng-template>
+    </ng-container>
+  </owl-carousel-o>
 </section>
 
 <!-- Contact us  -->
 <section
-  class="sectionSize items-start pt-8 md:pt-36 bg-black text-white"
-  [@fadeInOut]
+  class="sectionSize items-start pt-8 md:pt-36 text-white contact"
   #contact
 >
   <div class="mb-4">
@@ -352,60 +248,10 @@
       </div>
     </div>
   </div>
-  <!-- <div toggleElement class="w-full py-4">
-    <div class="flex justify-between items-center">
-      <div question class="font-montserrat font-medium mr-auto">
-        Where can I get this HTML template?
-      </div>
-      <img
-        src="assets/logos/CaretRight.svg"
-        alt=""
-        class="transform transition-transform"
-      />
-    </div>
-    <div answer class="font-montserrat text-sm font-extralight pb-8 hidden">
-      You can download it on Gumroad.com
-    </div>
-  </div>
-  <hr class="w-full bg-white" /> -->
-
-  <!-- <div toggleElement class="w-full py-4">
-    <div class="flex justify-between items-center">
-      <div question class="font-montserrat font-medium mr-auto">
-        Is this HTML template free?
-      </div>
-      <img
-        src="assets/logos/CaretRight.svg"
-        alt=""
-        class="transform transition-transform"
-      />
-    </div>
-    <div answer class="font-montserrat text-sm font-extralight pb-8 hidden">
-      Yes! For you it is free.
-    </div>
-  </div> -->
-  <!-- <hr class="w-full bg-white" />
-
-  <div toggleElement class="w-full py-4">
-    <div class="flex justify-between items-center">
-      <div question class="font-montserrat font-medium mr-auto">
-        Am I awesome?
-      </div>
-      <img
-        src="assets/logos/CaretRight.svg"
-        alt=""
-        class="transform transition-transform"
-      />
-    </div>
-    <div answer class="font-montserrat text-sm font-extralight pb-8 hidden">
-      Yes! No doubt about it.
-    </div>
-  </div>
-  <hr class="w-full bg-white" /> -->
 </section>
 
 <!-- Footer -->
-<section class="bg-black sectionSize">
+<section class="sectionSize bg-medium">
   <div class="mb-4">
     <img src="assets/images/nirovi2.png" alt="Logo" class="h-4" />
   </div>
@@ -427,18 +273,3 @@
     © {{ currentYear }} NIROVI LODGE. All rights reserved
   </div>
 </section>
-
-<!-- <div>
-  <button (click)="scrollToSection(section1)">Section 1</button>
-  <button (click)="scrollToSection(section2)">Section 2</button>
-  <button (click)="scrollToSection(section3)">Section 3</button>
-  <button (click)="scrollToSection(section4)">Section 4</button>
-</div>
-
-<div #section1 class="h-screen">section 1</div>
-
-<div #section2 class="h-screen">section 2</div>
-
-<div #section3 class="h-screen">Content for Section 3</div> -->
-<!-- 
-<div #section4 class="h-screen">Content for Section 4</div> -->

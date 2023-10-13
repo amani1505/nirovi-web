@@ -13,8 +13,9 @@ module.exports = {
   // darkMode: false, // or 'media' or 'class'
   theme: {
     colors: {
-      primary: "#94c5cc",
-      secondary: "#b4d2e7",
+      primary: "#e0a84e",
+      medium: "rgba(0,0,0,0.5)",
+      secondary: "#c0c0c0",
       black: "black",
       white: "white",
     },
@@ -22,6 +23,7 @@ module.exports = {
       "pt-serif": ["PT Serif", "serif"],
       montserrat: ["Montserrat", "sans-serif"],
       raleway: ["Raleway"],
+      varela: ["Varela Round", "sans-serif"],
     },
     backgroundSize: {
       auto: "auto",
