@@ -1,17 +1,14 @@
-.home{
-  background:
-  linear-gradient(to right, rgba(0,0,0,0.3), rgba(0,0,0,0.2)),url("../assets/images/room.jpg") center center/cover no-repeat,
- 
-
+.home {
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.2)),
+    url("../assets/images/room.webp") center center/cover no-repeat;
 }
 
 .translate-x-full {
   transform: translateX(-100%);
 }
 
-.contact{
-  background:
-  linear-gradient(to right, rgba(0,0,0,0.8), rgba(0,0,0,0.7)),url("../assets/images/bedroom.jpg") center center/cover no-repeat,
- 
-
+.contact {
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.7)),
+    url("../assets/images/bedroom.webp") center center/cover no-repeat;
 }
+

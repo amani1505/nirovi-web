@@ -22,6 +22,12 @@ interface Photos {
   marginL?: number;
   marginR?: number;
 }
+interface Room {
+  id: string;
+  photo: string;
+  price: string;
+  roomType: string;
+}
 
 @Component({
   selector: 'app-root',
@@ -73,10 +79,12 @@ export class AppComponent implements OnInit {
     touchDrag: true,
     pullDrag: false,
     dots: false,
-   margin:50,
+    autoplay: true,
+    margin: 50,
     lazyLoad: true,
     navSpeed: 700,
-    navText: ['', ''],
+    nav: false,
+
     responsive: {
       0: {
         items: 1,
@@ -91,21 +99,34 @@ export class AppComponent implements OnInit {
         items: 3,
       },
     },
-    nav: true,
   };
 
-
-
-
-
-
-
   photos: Photos[] = [
-    { id: '1', url: 'assets/images/reception.jpg' },
-    { id: '2', url: 'assets/images/room.jpg' },
-    { id: '3', url: 'assets/images/bedroom.jpg' },
-    { id: '4', url: 'assets/images/room.jpg' },
-    { id: '5', url: 'assets/images/bedroom.jpg' },
+    { id: '1', url: 'assets/images/reception.webp' },
+    { id: '2', url: 'assets/images/room.webp' },
+    { id: '3', url: 'assets/images/bedroom.webp' },
+    { id: '4', url: 'assets/images/room.webp' },
+    { id: '5', url: 'assets/images/bedroom.webp' },
+  ];
+  roomTypes: Room[] = [
+    {
+      id: '1',
+      photo: 'assets/images/reception.webp',
+      price: '15,000tsh/Night',
+      roomType: 'Standard',
+    },
+    {
+      id: '2',
+      photo: 'assets/images/room.webp',
+      price: '20,000/Night',
+      roomType: 'VIP',
+    },
+    {
+      id: '3',
+      photo: 'assets/images/bedroom.webp',
+      price: '25000/Night',
+      roomType: 'VVIP',
+    },
   ];
 
   ngOnInit() {}
