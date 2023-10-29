@@ -4,12 +4,12 @@ import { MatSortModule, Sort } from '@angular/material/sort';
 import { Nft } from 'src/app/modules/dashboard/models/nft';
 import { compare } from 'src/app/shared/functions/compare.function';
 import { GuestTableItemComponent } from '../guest-table-item/guest-table-item.component';
-import { AddGuestComponent } from '../add-guest/add-guest.component';
+
 
 @Component({
   selector: 'app-guest-table',
   standalone: true,
-  imports: [CommonModule,GuestTableItemComponent,MatSortModule,AddGuestComponent],
+  imports: [CommonModule,GuestTableItemComponent,MatSortModule,],
   templateUrl: './guest-table.component.html',
   styleUrls: ['./guest-table.component.scss']
 })

@@ -10,16 +10,9 @@
         >Updated 37 minutes ago</span
       >
     </div>
-    <button
-      class="flex-none rounded-md bg-gray-100 px-4 py-2.5 text-xs font-semibold text-gray-500 hover:bg-gray-200 dark:bg-night-600 dark:text-night-200 dark:hover:bg-night-500"
-      (click)="toogleAddGuest()"
-    >
-      Add Lodge
-    </button>
+  
   </div>
-  <div *ngIf="addGuest" class="animate-fade-in-down transition duration-700 ease-in-out">
-    <app-add-guest></app-add-guest>
-  </div>
+
   <div class="relative overflow-x-auto">
     <table class="w-full table-auto" matSort (matSortChange)="sortData($event)">
       <!--Table head-->

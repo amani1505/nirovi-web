@@ -2,6 +2,10 @@ import { Component, Input } from '@angular/core';
 import { CommonModule, CurrencyPipe } from '@angular/common';
 import { Nft } from '../../../models/nft';
 import { AngularSvgIconModule } from 'angular-svg-icon';
+import { Store, select } from '@ngrx/store';
+import { selectLodges } from '../../../pages/lodges/store/lodge/lodge.selectror';
+import { Lodge } from '../../../pages/lodges/store/lodge/lodge';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: '[lodge-table-item]',
@@ -12,8 +16,11 @@ import { AngularSvgIconModule } from 'angular-svg-icon';
   
 })
 export class TableItemComponent {
-  @Input() auction = <Nft>{};
+  @Input() lodge = <Lodge>{};
+  apiUrl = environment.apiUrl
 
   constructor() {}
+
+
 
 }
