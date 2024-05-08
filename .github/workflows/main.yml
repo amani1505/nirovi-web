@@ -16,7 +16,7 @@ jobs:
           npm run build
       - run:
           npm run build
-      - uses: amani1505/nirovi-web
+      - uses: amani1505/nirovi-web/v3
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH: gh-pages
